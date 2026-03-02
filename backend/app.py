@@ -5,6 +5,7 @@ from pymongo import MongoClient
 import certifi
 import os
 from dotenv import load_dotenv
+import ssl
 
 # Load environment variables from .env
 load_dotenv()
@@ -14,9 +15,12 @@ CORS(app, origins=os.getenv("FRONTEND_URL", "*"))
 
 # MongoDB connection
 client = MongoClient(
-    os.getenv("MONGODB_URL"),
+    MONGODB_URL,
     tls=True,
-    tlsCAFile=certifi.where()
+    tlsCAFile=certifi.where(),
+    tlsAllowInvalidCertificates=False,
+    ssl_cert_reqs=ssl.CERT_REQUIRED,
+    ssl_version=ssl.PROTOCOL_TLS_CLIENT  # ensures TLS 1.2+
 )
 db = client.github_events
 collection = db.events
