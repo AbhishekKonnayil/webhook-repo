@@ -15,7 +15,7 @@ CORS(app, origins=os.getenv("FRONTEND_URL", "*"))
 
 # MongoDB connection
 client = MongoClient(
-    os.getenv("MONGODB_URL")
+    os.getenv("MONGODB_URL"),
 )
 db = client.github_events
 collection = db.events
