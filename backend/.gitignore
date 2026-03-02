@@ -1,0 +1,15 @@
+# Python & Virtual Environments
+__pycache__/
+*.py[cod]
+venv/
+.env
+
+# Flask & Data
+instance/
+.webassets-cache
+
+# IDE/OS files
+.vscode/
+.idea/
+.DS_Store
+*.log
