@@ -19,8 +19,6 @@ client = MongoClient(
     tls=True,
     tlsCAFile=certifi.where(),
     tlsAllowInvalidCertificates=False,
-    ssl_cert_reqs=ssl.CERT_REQUIRED,
-    ssl_version=ssl.PROTOCOL_TLS_CLIENT  # ensures TLS 1.2+
 )
 db = client.github_events
 collection = db.events
