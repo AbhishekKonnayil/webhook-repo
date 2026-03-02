@@ -15,7 +15,7 @@ CORS(app, origins=os.getenv("FRONTEND_URL", "*"))
 
 # MongoDB connection
 client = MongoClient(
-    MONGODB_URL,
+    os.getenv("MONGODB_URL"),
     tls=True,
     tlsCAFile=certifi.where(),
     tlsAllowInvalidCertificates=False,
